@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Challenge Chapter 3</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="huruf">
+
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+    </string-array>
+
+    <string-array name="detail">
+        <item>AKU</item><item>AKI</item><item>AKU</item><item>AKE</item><item>AKO</item>
+
+        <item>BABA</item><item>BIBI</item><item>BUBU</item><item>BEBE</item><item>BOBO</item>
+
+        <item>CACA</item><item>CICI</item><item>CUCU</item><item>CECE</item><item>COCO</item>
+
+        <item>DADA</item><item>DIDI</item><item>DUDU</item><item>DEDE</item><item>DODO</item>
+
+        <item>EA</item><item>EI</item><item>EU</item><item>EE</item><item>EO</item>
+
+        <item>FAFA</item><item>FIFI</item><item>FUFU</item><item>FEFE</item><item>FOFO</item>
+
+        <item>GAGA</item><item>GIGI</item><item>GUGU</item><item>GEGE</item><item>GOGO</item>
+
+        <item>HAHA</item><item>HIHI</item><item>HUHU</item><item>HEHE</item><item>HOHO</item>
+
+        <item>IA</item><item>II</item><item>IU</item><item>IE</item><item>IO</item>
+
+        <item>JAJA</item><item>JIJI</item><item>JUJU</item><item>JEJE</item><item>JOJO</item>
+
+        <item>KAKA</item><item>KIKI</item><item>KUKU</item><item>KEKE</item><item>KOKO</item>
+
+        <item>LALA</item><item>LILI</item><item>LULU</item><item>LELE</item><item>LOLO</item>
+
+        <item>MAMA</item><item>MIMI</item><item>MUMU</item><item>MEME</item><item>MOMO</item>
+
+        <item>NANA</item><item>NINI</item><item>NUNU</item><item>NENE</item><item>NONO</item>
+    </string-array>
+</resources>
