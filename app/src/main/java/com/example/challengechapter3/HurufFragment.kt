@@ -5,14 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.challengechapter3.databinding.FragmentHurufBinding
 
-class HurufFragment : Fragment(){
+class HurufFragment : Fragment() {
     val list = ArrayList<ListHuruf>()
     lateinit var binding: FragmentHurufBinding
-    lateinit var rcvhuruf : RecyclerView
+    lateinit var rchuruf : RecyclerView
+    //latevar
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -20,8 +22,8 @@ class HurufFragment : Fragment(){
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentHurufBinding.inflate(layoutInflater, container, false)
-        rcvhuruf = binding.rcvHuruf
-        rcvhuruf.setHasFixedSize(true)
+        rchuruf = binding.rcvHuruf
+        rchuruf.setHasFixedSize(true)
         listHurufShow()
         binding.rcvHuruf.setOnClickListener {
 
@@ -29,20 +31,28 @@ class HurufFragment : Fragment(){
         return binding.root
     }
 
-    private fun getListHuruf() : ArrayList<ListHuruf> {
-        val dataHuruf = resources.getStringArray(R.array.huruf)
-        val listHuruf = ArrayList<ListHuruf>()
-        for (i in dataHuruf.indices) {
-            val abjad = ListHuruf(dataHuruf[i])
-            listHuruf.add(abjad)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.rcvHuruf.setOnClickListener{
+            findNavController().navigate(R.id.action_hurufFragment_to_detailFragment)
         }
-        return listHuruf
+    }
+
+    private fun getListHuruf() : ArrayList<ListHuruf> {
+        val dataNama = resources.getStringArray(R.array.huruf)
+        val listAbjad = ArrayList<ListHuruf>()
+        for (i in dataNama.indices) {
+            val abjad = ListHuruf(dataNama[i])
+            listAbjad.add(abjad)
+        }
+        return listAbjad
     }
 
     private fun listHurufShow() {
-        rcvhuruf.layoutManager = LinearLayoutManager(context)
+        rchuruf.layoutManager =LinearLayoutManager(context)
         var hurufAdapter = HurufAdapter(list)
-        rcvhuruf.adapter = hurufAdapter
+        rchuruf.adapter = hurufAdapter
         list.clear()
         list.addAll(getListHuruf())
     }

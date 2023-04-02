@@ -6,14 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.challengechapter3.databinding.FragmentDetailBinding
 
 class DetailFragment : Fragment() {
-    val list = ArrayList<ListKata>()
+    val kataList = ArrayList<ListKata>()
     lateinit var binding: FragmentDetailBinding
-    lateinit var rcvkata : RecyclerView
+    lateinit var rckata : RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,12 +26,13 @@ class DetailFragment : Fragment() {
         val data = argumen?.get("Huruf")
 
         binding.txtStart.text = "Word That Start With $data"
-        rcvkata = binding.rcvKata
-        rcvkata.setHasFixedSize(true)
+        rckata = binding.rcvKata
+        rckata.setHasFixedSize(true)
         listKataShow()
 
         return binding.root
     }
+
 
     private fun getKata() : ArrayList<ListKata> {
         val argument = this.arguments
@@ -50,26 +52,18 @@ class DetailFragment : Fragment() {
     }
 
     private fun listKataShow() {
-        rcvkata.layoutManager = LinearLayoutManager(context)
-        val listAdapter = KataAdapter(list)
-        rcvkata.adapter = listAdapter
-        list.clear()
-        list.addAll(getKata())
+        rckata.layoutManager = LinearLayoutManager(context)
+        val listAdapter = KataAdapter(kataList)
+        rckata.adapter = listAdapter
+        kataList.clear()
+        kataList.addAll(getKata())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val gambar = binding.imgBack
-        val kembali = HurufFragment()
-        gambar.setOnClickListener {
-            setCurrentFragment(kembali)
+        binding.imgBack.setOnClickListener {
+            findNavController().navigate(R.id.action_detailFragment_to_hurufFragment)
         }
     }
-
-    private fun setCurrentFragment(fragment: Fragment): FragmentTransaction =
-        parentFragmentManager.beginTransaction().apply {
-            replace(R.id.frame_layout, fragment)
-            commit()
-        }
 
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/hurufFragment">
+
+    <fragment
+        android:id="@+id/hurufFragment"
+        android:name="com.example.challengechapter3.HurufFragment"
+        android:label="fragment_huruf"
+        tools:layout="@layout/fragment_huruf" >
+        <action
+            android:id="@+id/action_hurufFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.challengechapter3.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_hurufFragment"
+            app:destination="@id/hurufFragment" />
+    </fragment>
+</navigation>

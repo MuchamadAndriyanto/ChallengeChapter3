@@ -13,14 +13,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val fragmentHuruf = HurufFragment()
-        setCurrentFragment(fragmentHuruf)
     }
 
-    private fun setCurrentFragment(fragment: Fragment) : FragmentTransaction =
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.frame_layout, fragment)
-            commit()
-        }
 }

@@ -37,3 +37,4 @@ class KataAdapter  (private val listKata : ArrayList<ListKata>) :
         return listKata.size
     }
 }
+
